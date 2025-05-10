@@ -3,9 +3,9 @@ import { NETFLIX_LOGO_URL } from '../utils/constants'
 
 const Header = () => {
   return (
-    <div className='absolute top-0 z-10 px-8 bg-gradient-to-b from-black w-full'>
+    <div className='fixed top-0 z-10 px-8 bg-gradient-to-b from-black w-full'>
       <img
-        className='w-40' src={NETFLIX_LOGO_URL} alt="logo" />
+        className='h-28 w-fit' src={NETFLIX_LOGO_URL} alt="logo" />
     </div>
     
   )
