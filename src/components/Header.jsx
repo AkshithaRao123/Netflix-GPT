@@ -1,5 +1,4 @@
 import React from 'react'
-import { BACKGROUND_IMAGE } from '../utils/constants'
 import { NETFLIX_LOGO_URL } from '../utils/constants'
 
 const Header = () => {
