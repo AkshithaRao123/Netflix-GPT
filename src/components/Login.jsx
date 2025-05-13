@@ -2,16 +2,21 @@ import { useState, useRef } from 'react'
 import Header from './Header'
 import { BACKGROUND_IMAGE } from '../utils/constants'
 import { validate } from '../utils/validate'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase'
+import { useNavigate } from 'react-router-dom'
+import TEMP_PROFILE_PIC from '../assets/vite.svg'
 
 const Login = () => {
+
+  const navigate = useNavigate();
 
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const email = useRef(null);
   const password = useRef(null);
+  const displayName = useRef(null);
   // const confirmed_password = useRef(null);
 
   const handleButtonClick = (e) => {
@@ -28,7 +33,17 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;
-          // ...
+          updateProfile(user, {
+            displayName: displayName.current.value, photoURL: TEMP_PROFILE_PIC
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            setErrorMessage(error.message);
+            console.log(error)
+          });
+          // console.log(displayName)
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -37,11 +52,27 @@ const Login = () => {
           if (errorCode === 'auth/email-already-in-use') {
             setErrorMessage("An account already exists with this email. Maybe login instead?");
           } else {
-          setErrorMessage(errorCode + "-" + errorMessage);
-        }
+            setErrorMessage(errorCode + "-" + errorMessage);
+          }
         });
     } else {
-      
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          navigate("/browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          if (errorCode === 'auth/user-not-found') {
+            setErrorMessage("Looks like there's no account registered with this email. Create an account?");
+          } else if (errorCode === 'auth/wrong-password') {
+            setErrorMessage("The password you entered is incorrect. Please try again.");
+          } else {
+            setErrorMessage(errorCode + "-" + errorMessage);
+          }
+        });
     }
   }
 
@@ -57,7 +88,7 @@ const Login = () => {
         <form
           onSubmit={(e) => e.preventDefault()} className='fixed bg-black z-10 login-form text-white mb-28'>
           <label className='font-bold text-2xl pb-5'>{isSignInForm ? "Sign In" : "Sign Up"}</label>
-          {!isSignInForm && <input type="text" placeholder="Full Name" className='p-2 m-2 outline-1 outline-white rounded-md bg-gray-800' />}
+          {!isSignInForm && <input ref={displayName} type="text" placeholder="Full Name" className='p-2 m-2 outline-1 outline-white rounded-md bg-gray-800' />}
           <input
             ref={email} type="text" placeholder="Email ID" className='p-2 m-2 outline-1 outline-white rounded-md bg-gray-800' />
           <input
