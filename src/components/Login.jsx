@@ -4,13 +4,11 @@ import { BACKGROUND_IMAGE } from '../utils/constants'
 import { validate } from '../utils/validate'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase'
-import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { addUser } from '../utils/userSlice'
 
 const Login = () => {
 
-  const navigate = useNavigate();
   const user = useSelector(store => store.user);
   const dispatch = useDispatch();
 
@@ -53,8 +51,6 @@ const Login = () => {
             setErrorMessage(error.message);
             console.log(error)
           });
-          // console.log(displayName)
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -71,7 +67,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;

@@ -1,20 +1,44 @@
+import { useEffect } from 'react'
+import { onAuthStateChanged } from "firebase/auth";
 import { NETFLIX_LOGO_URL } from '../utils/constants'
 import PROFILE_ICON from '../assets/user_profile.svg'
 import { auth } from "../utils/firebase"
 import { signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import { addUser, removeUser } from '../utils/userSlice';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(store => store.user);
   const handleSignOut = () => {
     signOut(auth).then(() => {
-      navigate('/');
     }).catch((error) => {
       console.log('Error signing out:', error);
     });
   }
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        )
+        navigate('/browse');
+      } else {
+        dispatch(removeUser());
+        navigate('/');
+      }
+    });
+  }, [])
+
   return (
     <div className='fixed flex flex-row items-center justify-between top-0 z-10 bg-gradient-to-b from-black w-screen px-10'>
       <div>
