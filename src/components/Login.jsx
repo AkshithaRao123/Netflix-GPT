@@ -5,11 +5,14 @@ import { validate } from '../utils/validate'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase'
 import { useNavigate } from 'react-router-dom'
-import TEMP_PROFILE_PIC from '../assets/vite.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { addUser } from '../utils/userSlice'
 
 const Login = () => {
 
   const navigate = useNavigate();
+  const user = useSelector(store => store.user);
+  const dispatch = useDispatch();
 
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -34,10 +37,18 @@ const Login = () => {
           // Signed up 
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: displayName.current.value, photoURL: TEMP_PROFILE_PIC
+            displayName: displayName.current.value, photoURL: user.photoURL
           }).then(() => {
             // Profile updated!
-            // ...
+            const { uid, email, displayName, photoURL } = auth.currentUser;
+            dispatch(
+              addUser({
+                uid: uid,
+                email: email,
+                displayName: displayName,
+                photoURL: photoURL,
+              })
+            )
           }).catch((error) => {
             setErrorMessage(error.message);
             console.log(error)
