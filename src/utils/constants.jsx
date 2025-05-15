@@ -6,6 +6,14 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJblahblahc9g4'
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNjAwYjFkZTA5YTZiNGM5ODM1NDcwNDdiNDNlZTEzMSIsIm5iZiI6MTc0NzIwNjM5Ny41MjgsInN1YiI6IjY4MjQ0MGZkMDhhYzQ4ODU2MDZlZWUwMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fCeJ6uzqSMBAhMwP6VtOZpT7KsAEolIRajM8XCnc9g4'
   }
 };
+
+// export const VIDEO_API_OPTIONS = {
+//   method: 'GET',
+//   headers: {
+//     accept: 'application/json',
+//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNjAwYjFkZTA5YTZiNGM5ODM1NDcwNDdiNDNlZTEzMSIsIm5iZiI6MTc0NzIwNjM5Ny41MjgsInN1YiI6IjY4MjQ0MGZkMDhhYzQ4ODU2MDZlZWUwMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fCeJ6uzqSMBAhMwP6VtOZpT7KsAEolIRajM8XCnc9g4'
+//   }
+// };
