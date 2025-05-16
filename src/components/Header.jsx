@@ -49,7 +49,7 @@ const Header = () => {
         <img className='h-28 w-fit' src={NETFLIX_LOGO_URL} alt="logo" />
       </div>
       {user && <div className='flex flex-row justify-end w-full'>
-        <img alt='user icon' src={PROFILE_ICON} className='w-30 px-10' />
+        <img alt='user icon' src={PROFILE_ICON} className='w-30 px-10 profile-icon' />
         <button onClick={handleSignOut} className='w-40 px-10'>
           Sign Out
         </button>
