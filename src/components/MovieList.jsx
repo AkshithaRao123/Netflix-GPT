@@ -5,15 +5,14 @@ const MovieList = ({ title, movies }) => {
         <div>
             <h2>{title}</h2>
             <div>
-                {/* <p>{movies[0].poster_path}</p>
-                {movies.map((movie) => {
+                {/* {movies.map((movie) => {
                     <MovieCard posterPath={movie.poster_path} />
                 })} */}
                 {
                     (movies
                         ?
                         movies.map((movie) => {
-                            <MovieCard posterPath={movie.poster_path} />
+                            return <MovieCard posterPath={movie?.poster_path} />
                         })
                         :
                         <p>No movies available</p>
