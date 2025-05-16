@@ -8,7 +8,7 @@ const VideoBackground = (props) => {
   useMovieTrailer(props);
 
   return (
-    <div className="bg-gradient-to-r from-black relative top-0">
+    <div className="relative top-0 -z-1">
       <iframe className="w-screen aspect-video"
         src={"https://www.youtube.com/embed/" + trailerVideo?.key}
         title="YouTube video player"
