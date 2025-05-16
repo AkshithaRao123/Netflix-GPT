@@ -10,10 +10,4 @@ export const API_OPTIONS = {
   }
 };
 
-// export const VIDEO_API_OPTIONS = {
-//   method: 'GET',
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNjAwYjFkZTA5YTZiNGM5ODM1NDcwNDdiNDNlZTEzMSIsIm5iZiI6MTc0NzIwNjM5Ny41MjgsInN1YiI6IjY4MjQ0MGZkMDhhYzQ4ODU2MDZlZWUwMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fCeJ6uzqSMBAhMwP6VtOZpT7KsAEolIRajM8XCnc9g4'
-//   }
-// };
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";

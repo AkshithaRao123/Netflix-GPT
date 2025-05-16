@@ -1,7 +1,7 @@
 const VideoTitle = ({ title, overview }) => {
   return (
     <div className="z-10 py-28 px-10 w-1/4 text-white flex absolute top-100vh h-full mt-[20%] flex-col">
-      <div class='blurr'>
+      <div className='blurr'>
         <div>
           <h1 style={{ paddingBottom: 10 }}>{title}</h1>
           <p>{overview}</p>
