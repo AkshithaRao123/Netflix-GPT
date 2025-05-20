@@ -23,7 +23,6 @@ const Login = () => {
   const handleButtonClick = (e) => {
     e.preventDefault();
     const message = validate(email.current.value, password.current.value);
-    // console.log(confirmed_password.current.value);
 
     setErrorMessage(message);
 
@@ -49,13 +48,11 @@ const Login = () => {
             )
           }).catch((error) => {
             setErrorMessage(error.message);
-            console.log(error)
           });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(error)
           if (errorCode === 'auth/email-already-in-use') {
             setErrorMessage("An account already exists with this email. Maybe login instead?");
           } else {
