@@ -57,9 +57,9 @@ const Header = () => {
   }
 
   return (
-    <div className='fixed flex flex-row items-center justify-between top-0 z-10 bg-gradient-to-b from-black w-screen px-10'>
+    <div className='fixed flex items-center justify-between top-0 z-10 bg-gradient-to-b from-black w-screen px-10 flex-col md:flex-row'>
       <div>
-        <img className='h-28 w-fit' src={NETFLIX_LOGO_URL} alt="logo" />
+        <img className='h-20 md:h-28 sm:20 mx-auto md:mx-0 sm:mx-auto' src={NETFLIX_LOGO_URL} alt="logo" />
       </div>
       {user &&
         <div className='flex flex-row justify-end w-full'>

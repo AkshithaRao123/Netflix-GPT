@@ -10,7 +10,6 @@ const GPTMovieSuggestions = () => {
     <div className="blurr mt-30">
       {movieNames.map((movie, index) => (<div key={movie}>
         <MovieList key={movie} title={movie} movies={movieResults[index].results} />
-        {/* {console.log(movie, movieResults[index])} */}
       </div>))}
     </div>
   )

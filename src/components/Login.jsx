@@ -84,12 +84,12 @@ const Login = () => {
   }
 
   return (
-    <div className='z-1'>
+    <div>
       <Header />
-      <div className='center-screen'>
-        <img className='contrast-50' src={BACKGROUND_IMAGE} alt="background" />
+      <div className='center-screen z-1'>
+        <img className='contrast-50 z-1 h-screen object-cover' src={BACKGROUND_IMAGE} alt="background" />
         <form
-          onSubmit={(e) => e.preventDefault()} className='fixed bg-black z-10 login-form text-white mb-28'>
+          onSubmit={(e) => e.preventDefault()} className='fixed bg-black z-10 login-form-mobile text-white mb-0'>
           <label className='font-bold text-2xl pb-5'>{isSignInForm ? "Sign In" : "Sign Up"}</label>
           {!isSignInForm && <input ref={displayName} type="text" placeholder="Full Name" className='p-2 m-2 outline-1 outline-white rounded-md bg-gray-800' />}
           <input

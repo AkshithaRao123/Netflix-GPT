@@ -9,7 +9,7 @@ const VideoBackground = (props) => {
 
   return (
     <div className="relative top-0 -z-1">
-      <iframe className="w-screen aspect-video"
+      <iframe className="w-screen aspect-video mt-45 md:mt-0"
         src={"https://www.youtube.com/embed/" + trailerVideo?.key + "?controls=0"}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

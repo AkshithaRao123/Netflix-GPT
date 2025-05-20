@@ -1,14 +1,14 @@
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="z-10 px-10 w-1/4 text-white flex absolute mt-[20%] flex-col">
-      <div className='blurr w-[400px]'>
+    <div className="z-10 px-10 w-1/4 text-white flex absolute mt-[40%] flex-col ">
+      <div className='blurr w-[300px] md:w-[400px]'>
         <div>
-          <h1 style={{ paddingBottom: 10 }}>{title}</h1>
-          <p>{overview}</p>
+          <h1 className="text-lg text-bold" style={{ paddingBottom: 10 }}>{title}</h1>
+          <p className="hidden md:inline-block">{overview}</p>
         </div>
-        <div style={{ justifyContent: 'center', display: 'flex', flexDirection: 'row', height: 70 }}>
-          <button style={{ width: '50%' }} className='m-2.5 hover:opacity-75'>▶ Play</button>
-          <button style={{ width: '50%' }} className='m-2.5 hover:opacity-75'>More Info</button>
+        <div className="hidden sm:hidden md:flex md:flex-row h-[70] md:justify-center">
+          <button className='m-2.5 hover:opacity-75 w-[50%]'>▶ Play</button>
+          <button className='m-2.5 hover:opacity-75 w-[50%]'>More Info</button>
         </div>
       </div>
     </div>
@@ -16,3 +16,5 @@ const VideoTitle = ({ title, overview }) => {
 }
 
 export default VideoTitle;
+
+// justify-center none md:flex flex-row h-70

@@ -37,23 +37,27 @@ body {
   align-items: center;
 }
 
-.login-form {
+/* .login-form {
   display: flex;
   flex-direction: column;
   padding: 20px;
   border-radius: 20px;
   opacity: 0.8;
-}
+  background-color: white;
+} */
 
-h1 {
-  font-size: clamp(2em, 2.5em, 3em);
-  line-height: 1.1;
+.login-form-mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0.8;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.6em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -90,6 +94,6 @@ button:focus-visible {
 }
 
 .profile-icon {
-  -webkit-filter: invert(100%);
+  -webkit-filter: invert(50%);
   filter: invert(100%);
 }

@@ -13,7 +13,7 @@ const MainContainer = () => {
     const movieID = mainMovie.id.toString();
 
     return (
-        <div className="font-bold">
+        <div className="font-medium md:font-bold">
             <VideoTitle title={original_title} overview={overview} />
             <VideoBackground movieID={movieID} />
         </div>
